@@ -1,0 +1,112 @@
+{
+  "separator": "_",
+  "realms": [
+    {
+      "name": "Platform",
+      "organizations": [],
+      "users": [
+        {
+          "username": "sysadmin.platform",
+          "email": "sysadmin@platform.local",
+          "password": "Sys@12345",
+          "role": "Sysadmin"
+        }
+      ]
+    },
+    {
+      "name": "Blegal",
+      "organizations": [
+        {
+          "alias": "Default",
+          "name": "Blegal Root Tenant",
+          "domain": "blegal.example",
+          "root": true
+        },
+        {
+          "alias": "Vinasa",
+          "name": "Vinasa",
+          "domain": "vinasa.vn",
+          "users": [
+            {
+              "username": "dgnaw",
+              "email": "dgnaw@vinasa.vn",
+              "password": "Test@12345",
+              "role": "Tenant_Admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AIHub",
+      "organizations": [
+        {
+          "alias": "Default",
+          "name": "AIHub Root Tenant",
+          "domain": "aihub.example",
+          "root": true
+        }
+      ]
+    },
+    {
+      "name": "LDM",
+      "organizations": [
+        {
+          "alias": "Default",
+          "name": "LDM Root Tenant",
+          "domain": "ldm.example",
+          "root": true
+        }
+      ]
+    }
+  ],
+  "roles": [
+    "Sysadmin",
+    "Tenant_Admin",
+    "Tenant_User"
+  ],
+  "client": {
+    "clientId": "admin-portal",
+    "publicClient": true,
+    "standardFlowEnabled": true,
+    "directAccessGrantsEnabled": true,
+    "redirectUris": [
+      "http://localhost:5173/*",
+      "http://localhost:3000/*"
+    ],
+    "webOrigins": [
+      "+"
+    ],
+    "attributes": {
+      "post.logout.redirect.uris": "+"
+    },
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "basic",
+      "email",
+      "organization"
+    ]
+  },
+  "serviceClient": {
+    "clientId": "platform-service",
+    "publicClient": false,
+    "serviceAccountsEnabled": true,
+    "standardFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "secret": "platform-service-secret",
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "basic",
+      "email"
+    ],
+    "roles": [
+      "platform-admin"
+    ]
+  }
+}
