@@ -1,0 +1,25 @@
+{
+  "name": "@platform/auth-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./express": "./dist/express.js",
+    "./nestjs": "./dist/nestjs.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test:e2e": "node --import tsx test/verify.e2e.ts && node --import tsx test/service-token.e2e.ts"
+  },
+  "dependencies": {
+    "jose": "^6.2.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
